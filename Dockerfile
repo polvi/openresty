@@ -7,10 +7,10 @@
 #RUN ./configure
 #RUN make
 #RUN make install
-#ENV PATH /usr/local/openresty/nginx/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 #RUN mkdir -p /app/logs /app/conf
 #WORKDIR /app/
 FROM coreos/openresty
+ENV PATH /usr/local/openresty/nginx/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 EXPOSE 8080
 ADD nginx.conf /app/conf/nginx.conf
 CMD nginx -p /app/ -c conf/nginx.conf
